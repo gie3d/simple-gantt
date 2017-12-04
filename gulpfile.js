@@ -20,7 +20,7 @@ gulp.task('connect', function() {
 gulp.task('sass', function () {
 	return gulp.src(srcDir + '/*.scss')
 		.pipe(sass().on('error', sass.logError))
-		.pipe(gulp.dest(srcDir));
+		.pipe(gulp.dest(srcDir + '/src'));
 });
 
 gulp.task('sass:watch', function () {
@@ -30,7 +30,10 @@ gulp.task('sass:watch', function () {
 gulp.task('build', ['cleanup'], function() {
 	var css = gulp.src(srcDir + '/*.scss')
 		.pipe(sass().on('error', sass.logError))
-		.pipe(gulp.dest(buildDir));
+		.pipe(gulp.dest(buildDir + '/src'));
+
+	var img = gulp.src(srcDir + '/img/**')
+		.pipe(gulp.dest(buildDir + '/src/img'));
 
 	var mainJs = gulp.src('./index.html')
 		.pipe(usemin({

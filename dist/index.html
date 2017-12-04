@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>Simple Gantt Chart Demo</title>
-	<link rel="stylesheet" href="simple-gantt.css">
+	<link rel="stylesheet" href="src/simple-gantt.css">
 	<style>
 		#gantt-container {
 			width: 800px;
@@ -15,7 +15,7 @@
 	<div id="gantt-container">
 		
 	</div>
-	<script src="simple-gantt-475bbb5655.js"></script>
+	<script src="simple-gantt-4acbf5de36.js"></script>
 	<script>
 		var data = {
 			scope: {
@@ -28,7 +28,11 @@
 					startDate: new Date('20 Sep 2017'),
 					endDate: new Date('23 Sep 2017'),
 					label: 'test 1-1 label',
-					color: '#3399ff'
+					color: '#3399ff',
+					desc: 'Hello World<br><b>Hello Dude</b>',
+					onClick: function() {
+						console.log('clicked');
+					}
 				}, {
 					startDate: new Date('26 Sep 2017'),
 					endDate: new Date('30 Sep 2017'),
@@ -37,6 +41,153 @@
 				}]
 			}, {
 				title: 'test 2',
+				dates: [{
+					startDate: new Date('5 Oct 2017'),
+					endDate: new Date('8 Oct 2017'),
+					label: 'test 2-1 label',
+					color: '#3399ff',
+					desc: 'Hello World 2<br><b>Hello Dude 2</b>',
+					onClick: function() {
+						console.log('clicked');
+					}
+				}, {
+					startDate: new Date('10 Oct 2017'),
+					endDate: new Date('12 Oct 2017'),
+					label: 'test 2-2 label',
+					color: '#ff9900'
+				}]
+			}, {
+				title: 'test 3',
+				dates: [{
+					startDate: new Date('5 Oct 2017'),
+					endDate: new Date('8 Oct 2017'),
+					label: 'test 2-1 label',
+					color: '#3399ff'
+				}, {
+					startDate: new Date('10 Oct 2017'),
+					endDate: new Date('12 Oct 2017'),
+					label: 'test 2-2 label',
+					color: '#ff9900'
+				}]
+			}, {
+				title: 'test 4',
+				dates: [{
+					startDate: new Date('5 Oct 2017'),
+					endDate: new Date('8 Oct 2017'),
+					label: 'test 2-1 label',
+					color: '#3399ff'
+				}, {
+					startDate: new Date('10 Oct 2017'),
+					endDate: new Date('12 Oct 2017'),
+					label: 'test 2-2 label',
+					color: '#ff9900'
+				}]
+			}, {
+				title: 'test 5',
+				dates: [{
+					startDate: new Date('5 Oct 2017'),
+					endDate: new Date('8 Oct 2017'),
+					label: 'test 2-1 label',
+					color: '#3399ff'
+				}, {
+					startDate: new Date('10 Oct 2017'),
+					endDate: new Date('12 Oct 2017'),
+					label: 'test 2-2 label',
+					color: '#ff9900'
+				}]
+			}, {
+				title: 'test 6',
+				dates: [{
+					startDate: new Date('5 Oct 2017'),
+					endDate: new Date('8 Oct 2017'),
+					label: 'test 2-1 label',
+					color: '#3399ff'
+				}, {
+					startDate: new Date('10 Oct 2017'),
+					endDate: new Date('12 Oct 2017'),
+					label: 'test 2-2 label',
+					color: '#ff9900'
+				}]
+			}, {
+				title: 'test 7',
+				dates: [{
+					startDate: new Date('5 Oct 2017'),
+					endDate: new Date('8 Oct 2017'),
+					label: 'test 2-1 label',
+					color: '#3399ff'
+				}, {
+					startDate: new Date('10 Oct 2017'),
+					endDate: new Date('12 Oct 2017'),
+					label: 'test 2-2 label',
+					color: '#ff9900'
+				}]
+			}, {
+				title: 'test 8',
+				dates: [{
+					startDate: new Date('5 Oct 2017'),
+					endDate: new Date('8 Oct 2017'),
+					label: 'test 2-1 label',
+					color: '#3399ff'
+				}, {
+					startDate: new Date('10 Oct 2017'),
+					endDate: new Date('12 Oct 2017'),
+					label: 'test 2-2 label',
+					color: '#ff9900'
+				}]
+			}, {
+				title: 'test 9',
+				dates: [{
+					startDate: new Date('5 Oct 2017'),
+					endDate: new Date('8 Oct 2017'),
+					label: 'test 2-1 label',
+					color: '#3399ff'
+				}, {
+					startDate: new Date('10 Oct 2017'),
+					endDate: new Date('12 Oct 2017'),
+					label: 'test 2-2 label',
+					color: '#ff9900'
+				}]
+			}, {
+				title: 'test 10',
+				dates: [{
+					startDate: new Date('5 Oct 2017'),
+					endDate: new Date('8 Oct 2017'),
+					label: 'test 2-1 label',
+					color: '#3399ff'
+				}, {
+					startDate: new Date('10 Oct 2017'),
+					endDate: new Date('12 Oct 2017'),
+					label: 'test 2-2 label',
+					color: '#ff9900'
+				}]
+			}, {
+				title: 'test 11',
+				dates: [{
+					startDate: new Date('5 Oct 2017'),
+					endDate: new Date('8 Oct 2017'),
+					label: 'test 2-1 label',
+					color: '#3399ff'
+				}, {
+					startDate: new Date('10 Oct 2017'),
+					endDate: new Date('12 Oct 2017'),
+					label: 'test 2-2 label',
+					color: '#ff9900'
+				}]
+			}, {
+				title: 'test 12',
+				dates: [{
+					startDate: new Date('5 Oct 2017'),
+					endDate: new Date('8 Oct 2017'),
+					label: 'test 2-1 label',
+					color: '#3399ff'
+				}, {
+					startDate: new Date('10 Oct 2017'),
+					endDate: new Date('12 Oct 2017'),
+					label: 'test 2-2 label',
+					color: '#ff9900'
+				}]
+			}, {
+				title: 'test 13',
 				dates: [{
 					startDate: new Date('5 Oct 2017'),
 					endDate: new Date('8 Oct 2017'),
@@ -52,7 +203,8 @@
 		};
 
 		var chartConfig = {
-			titleWidth: 200
+			titleWidth: 200,
+			height: 600
 		}
 
 		SimpleGantt.generate('#gantt-container', chartConfig, data);
