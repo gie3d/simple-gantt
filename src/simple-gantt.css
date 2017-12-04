@@ -58,6 +58,7 @@
 
 .monthyear-box {
   float: left;
+  font-weight: bold;
   height: 30px;
   border-width: 0px 1px 1px 0px;
   border-style: solid;

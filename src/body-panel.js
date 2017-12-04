@@ -99,6 +99,9 @@ var BodyPanel = (function(GANTT_DEFAULT_CONFIG) {
 		barElem.style.top = top + 'px';
 		var text = document.createTextNode(bar.label);
 		barElem.appendChild(text);
+		if (bar.onClick) {
+			barElem.addEventListener('click', bar.onClick);
+		}
 
 		return barElem;
 	}
