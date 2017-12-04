@@ -1,16 +1,23 @@
+$borderColor: #cccccc;
+
 .main-container {
 	position: relative;
 	overflow-x: scroll;
 	overflow-y: hidden;
-	font-family: 'Helvetica';
+	font-family: 'Arial';
+	font-size: 13px;
+	color: #333333;
 }
 
 .header-panel {
 	position: absolute;;
 	top: 0px;
 	left: 0px;
-	height: 62px;
-	border: 1px solid #cccccc;	
+	height: 60px;
+	border-width: 0px 1px 1px 0px;
+	border-style: solid;
+	border-color: $borderColor;
+	background-color: #eeeeee;
 }
 
 .header-daterange-panel {
@@ -20,40 +27,50 @@
 .title-container {
 	float: left;
 	text-align: center;
-	height: 62px;
-	line-height: 62px;
-	border: 1px solid #cccccc;
+	height: 60px;
+	line-height: 60px;
+	border-width: 0px 1px 1px 0px;
+	border-style: solid;
+	border-color: $borderColor;
+	font-weight: bold;
 }
 
 .data-panel {
 	position: absolute;;
-	top: 64px;
+	top: 61px;
 	left: 0px;
-	height: 1200px;
 	overflow-x: hidden;
 	overflow-y: scroll;
-	border: 1px solid #cccccc;
+	border: 0px 1px 1px 0px solid $borderColor;
 }
 
 .day-box {
 	float: left;
 	width: 30px;
 	height: 30px;
-	border: 1px solid #cccccc;
-	text-align: center;
 	line-height: 30px;
+	border-width: 0px 1px 1px 0px;
+	border-style: solid;
+	border-color: $borderColor;
+	text-align: center;
 }
 
 .bar {
+	position: absolute;;
 	text-align: center;
-	height: 30px;
-	line-height: 30px;
+	padding: 3px;
+	font-size: 13px;
+	border-radius: 8px;
+	height: 19px;
+	line-height: 19px;
 }
 
 .monthyear-box {
 	float: left;
 	height: 30px;
-	border: 1px solid #cccccc;
+	border-width: 0px 1px 1px 0px;
+	border-style: solid;
+	border-color: $borderColor;
 	text-align: center;
 	line-height: 30px;
 }
@@ -66,13 +83,42 @@
 	float: left;
 	height: 30px;
 	line-height: 30px;
-	border: 1px solid #cccccc;
+	padding-left: 6px;
+	border-width: 0px 1px 1px 0px;
+	border-style: solid;
+	border-color: $borderColor;
 }
 
 .data-panel .left-panel {
 	position: absolute;
+	background-color: #eeeeee;
+	font-weight: bold;
 }
 
 .data-panel .chart-panel {
 	position: absolute;
+	background-image: url('img/cell.png');
+	border-width: 0px 0px 0px 1px;
+	border-style: solid;
+	border-color: $borderColor;
+}
+
+.wrap-text-with-dots {
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.desc-box {
+	display: none;
+	position: absolute;
+	background-color: #F5ECCE;
+	border: 1px solid #FFBF00;
+	padding: 5px;
+	border-radius: 5px;
+	z-index: 100;
+}
+
+.bar:hover + .desc-box {
+	display: block;
 }

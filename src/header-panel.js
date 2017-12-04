@@ -9,9 +9,9 @@ var HeaderPanel = (function(GANTT_DEFAULT_CONFIG) {
 		headerPanel = setHeaderPanelWidth(headerPanel, chartConfig, data);
 		
 		var titlePanel = createTitleHeader(chartConfig);
-		var dayRangePanel = createDateRangeHeader(chartConfig, data.scope.startDate, data.scope.endDate);
+		var dateRangePanel = createDateRangeHeader(chartConfig, data.scope.startDate, data.scope.endDate);
 		headerPanel.appendChild(titlePanel);
-		headerPanel.appendChild(dayRangePanel);
+		headerPanel.appendChild(dateRangePanel);
 		
 		return headerPanel;
 	}
@@ -21,7 +21,7 @@ var HeaderPanel = (function(GANTT_DEFAULT_CONFIG) {
 		var titleWidth = GanttUtils.getTitleWidth(chartConfig);
 		var boxWidth = GanttUtils.getBoxWidth(chartConfig);
 		var panelWidth = (boxWidth * daysDiff) + titleWidth;
-		headerPanel.style.width = panelWidth + 'px';
+		headerPanel.style.width = panelWidth + 2 + 'px';
 		return headerPanel;
 	}
 
@@ -56,8 +56,9 @@ var HeaderPanel = (function(GANTT_DEFAULT_CONFIG) {
 	}
 
 	var createHeaderDayMonthElement = function(startDate, endDate) {
-		var dayRangePanel = document.createElement('div');
 		var monthRangePanel = document.createElement('div');
+		var dayRangePanel = document.createElement('div');
+		dayRangePanel.style.marginLeft = '1px'; // TODO: Revise this. It shouldn't patch 1px like this
 		var daysDiff = GanttUtils.calculateDaysDiff(startDate, endDate);
 		var previousMonthIndex = startDate.getMonth();
 		var previousDate;
@@ -107,7 +108,7 @@ var HeaderPanel = (function(GANTT_DEFAULT_CONFIG) {
 		monthBox.classList.add('monthyear-box');
 		var textMonthYear = document.createTextNode(MONTHS[date.getMonth()] + ' ' + date.getFullYear());
 		monthBox.appendChild(textMonthYear);
-		monthBox.style.width = (width - 2) + 'px';
+		monthBox.style.width = width + 'px';
 
 		return monthBox;
 	}

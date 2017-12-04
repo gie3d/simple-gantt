@@ -6,7 +6,7 @@
 	<style>
 		#gantt-container {
 			width: 800px;
-			height: 400px;
+			height: 600px;
 			border: 1px solid #000000;
 		}
 	</style>
@@ -34,7 +34,8 @@
 					startDate: new Date('20 Sep 2017'),
 					endDate: new Date('23 Sep 2017'),
 					label: 'test 1-1 label',
-					color: '#3399ff'
+					color: '#3399ff',
+					desc: 'Hello World<br><b>Hello Dude</b>'
 				}, {
 					startDate: new Date('26 Sep 2017'),
 					endDate: new Date('30 Sep 2017'),
@@ -47,7 +48,8 @@
 					startDate: new Date('5 Oct 2017'),
 					endDate: new Date('8 Oct 2017'),
 					label: 'test 2-1 label',
-					color: '#3399ff'
+					color: '#3399ff',
+					desc: 'Hello World 2<br><b>Hello Dude 2</b>'
 				}, {
 					startDate: new Date('10 Oct 2017'),
 					endDate: new Date('12 Oct 2017'),
@@ -202,7 +204,7 @@
 
 		var chartConfig = {
 			titleWidth: 200,
-			height: 400
+			height: 600
 		}
 
 		SimpleGantt.generate('#gantt-container', chartConfig, data);
