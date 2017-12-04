@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Simple Gantt Chart Demo</title>
+	<link rel="stylesheet" href="simple-gantt.css">
+	<style>
+		#gantt-container {
+			width: 800px;
+			height: 600px;
+			border: 1px solid #000000;
+		}
+	</style>
+</head>
+<body>
+	<div id="gantt-container">
+		
+	</div>
+	<script src="simple-gantt-475bbb5655.js"></script>
+	<script>
+		var data = {
+			scope: {
+				startDate: new Date('5 Sep 2017'),
+				endDate: new Date('25 Oct 2017')
+			},
+			gantt: [{
+				title: 'test 1',
+				dates: [{
+					startDate: new Date('20 Sep 2017'),
+					endDate: new Date('23 Sep 2017'),
+					label: 'test 1-1 label',
+					color: '#3399ff'
+				}, {
+					startDate: new Date('26 Sep 2017'),
+					endDate: new Date('30 Sep 2017'),
+					label: 'test 1-2 label',
+					color: '#3399ff'
+				}]
+			}, {
+				title: 'test 2',
+				dates: [{
+					startDate: new Date('5 Oct 2017'),
+					endDate: new Date('8 Oct 2017'),
+					label: 'test 2-1 label',
+					color: '#3399ff'
+				}, {
+					startDate: new Date('10 Oct 2017'),
+					endDate: new Date('12 Oct 2017'),
+					label: 'test 2-2 label',
+					color: '#ff9900'
+				}]
+			}]
+		};
+
+		var chartConfig = {
+			titleWidth: 200
+		}
+
+		SimpleGantt.generate('#gantt-container', chartConfig, data);
+	</script>
+</body>
+</html>

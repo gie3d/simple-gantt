@@ -1,0 +1,19 @@
+{
+  "name": "simple-gantt",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:gie3d/simple-gantt.git",
+  "author": "Wasa C <gie68i@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^3.9.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-connect": "^5.0.0",
+    "gulp-rev": "^8.0.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^3.0.0",
+    "gulp-usemin": "^0.3.28"
+  }
+}

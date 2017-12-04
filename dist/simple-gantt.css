@@ -1,0 +1,43 @@
+.main-container {
+  position: relative;
+  overflow-x: scroll;
+  overflow-y: hidden; }
+
+.scrollable-container {
+  overflow: scroll; }
+
+.header-panel {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 62px;
+  border: 1px solid #000000; }
+
+.header-daterange-panel {
+  position: absolute; }
+
+.data-panel {
+  position: absolute;
+  top: 64px;
+  left: 0px;
+  height: 1200px;
+  border: 1px solid #000000;
+  overflow-y: scroll; }
+
+.day-box {
+  float: left;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #000000;
+  text-align: center;
+  line-height: 30px; }
+
+.monthyear-box {
+  float: left;
+  height: 30px;
+  border: 1px solid #000000;
+  text-align: center;
+  line-height: 30px; }
+
+.clear-both {
+  clear: both; }
