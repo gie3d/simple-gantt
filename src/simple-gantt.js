@@ -16,7 +16,6 @@ var SimpleGantt = (function(HeaderPanel, BodyPanel){
 			container.appendChild(dataPanel);
 
 			container.addEventListener('scroll', function(e) {
-				console.log('scroll');
 				var leftPanel = document.querySelector('.left-panel');
 				leftPanel.style.left = this.scrollLeft + 'px';
 			});

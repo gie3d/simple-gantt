@@ -45,7 +45,7 @@ var BodyPanel = (function(GANTT_DEFAULT_CONFIG) {
 			var titleWidth = GanttUtils.getTitleWidth(chartConfig);
 			boxElem.style.width = (titleWidth - 6) + 'px';
 			boxElem.classList.add('data-left-box');
-			boxElem.innerHTML = row.titleHtmlElem + ' ' + row.title;
+			boxElem.innerHTML = row.title;
 			panel.appendChild(boxElem);
 		});
 
@@ -73,45 +73,20 @@ var BodyPanel = (function(GANTT_DEFAULT_CONFIG) {
 			var top = index * (GANTT_DEFAULT_CONFIG.BOXHEIGHT + 1);
 			top = top + 3;
 			row.dates.forEach(function(bar) {
-				var barElem = generateGanttBar(chartConfig, bar, top, data.scope.startDate);
+				var barElem = generateGanttBar(chartConfig, bar, top, data.scope.startDate, data.onBarClick);
 				chartPanel.appendChild(barElem);
 				if (bar.desc) {
 					var descBox = generateDescBox(chartConfig, bar, top, data.scope.startDate);
 					chartPanel.appendChild(descBox);
 				}
 			});
-
-			var rowBackground = generateRowEvent(chartConfig, row.title, top, data, index, containerId);
-			chartPanel.appendChild(rowBackground);
-			
 		});
 
 		// console.log(chartPanel);
 		return chartPanel;
 	}
 
-	var generateRowEvent = function(chartConfig, title, top, data, index, containerId) {
-		var boxWidth = GanttUtils.getBoxWidth(chartConfig);
-		var daysDiff = GanttUtils.calculateDaysDiff(data.scope.startDate, data.scope.endDate);
-		var panelWidth = (boxWidth * daysDiff);
-		var div = document.createElement('div');
-		div.style.position = 'absolute';
-		div.style.top = top + 'px';
-		div.style.width = panelWidth + 'px';
-		div.style.height = GANTT_DEFAULT_CONFIG.BOXHEIGHT + 'px';
-
-		if (data.onClick) {
-			var rowClick = function() {
-				data.onClick(index);
-			}
-
-			div.addEventListener('click', rowClick);
-		};
-
-		return div;
-	}
-
-	var generateGanttBar = function(chartConfig, bar, top, firstDayOfChart) {
+	var generateGanttBar = function(chartConfig, bar, top, firstDayOfChart, onBarClick) {
 		var positionDate = getPositionByDate(chartConfig, bar, firstDayOfChart);
 		var barWidth = positionDate.end - positionDate.start - 9; // 6 is set for margin right
 		var barElem = document.createElement('div');
@@ -126,8 +101,12 @@ var BodyPanel = (function(GANTT_DEFAULT_CONFIG) {
 		barElem.style.top = top + 'px';
 		var text = document.createTextNode(bar.label);
 		barElem.appendChild(text);
-		if (bar.onClick) {
-			barElem.addEventListener('click', bar.onClick);
+		if (onBarClick) {
+			var clickBar = function() {
+				onBarClick(bar.onClickParams);
+			}
+
+			barElem.addEventListener('click', clickBar);
 		}
 
 		return barElem;

@@ -37,21 +37,18 @@
 				startDate: new Date('5 Sep 2017'),
 				endDate: new Date('25 Oct 2017')
 			},
-			onClick: function(index) {
-				console.log('row click: ' + index);
+			onBarClick: function(params) {
+				console.log('bar click');
+				console.log(params);
 			},
 			gantt: [{
 				title: 'test 1',
-				titleHtmlElem: '<input type="checkbox" />',
 				dates: [{
 					startDate: new Date('20 Sep 2017'),
 					endDate: new Date('23 Sep 2017'),
 					label: 'test 1-1 label',
 					color: '#3399ff',
 					desc: 'Hello World<br><b>Hello Dude</b>',
-					onClick: function() {
-						console.log('clicked');
-					}
 				}, {
 					startDate: new Date('26 Sep 2017'),
 					endDate: new Date('30 Sep 2017'),
@@ -60,7 +57,6 @@
 				}]
 			}, {
 				title: 'test 2',
-				titleHtmlElem: '<input type="checkbox" />',
 				dates: [{
 					startDate: new Date('1 Oct 2017'),
 					endDate: new Date('5 Oct 2017'),
@@ -68,9 +64,6 @@
 					color: '#33cc4a',
 					class: 'low-bar',
 					desc: 'Hello World 2<br><b>Hello Dude 2</b>',
-					onClick: function() {
-						console.log('clicked');
-					}
 				}, {
 					startDate: new Date('5 Oct 2017'),
 					endDate: new Date('8 Oct 2017'),
@@ -78,8 +71,9 @@
 					color: '#3399ff',
 					class: 'main-bar',
 					desc: 'Hello World 2<br><b>Hello Dude 2</b>',
-					onClick: function() {
-						console.log('clicked');
+					onClickParams: {
+						id: 'test',
+						name: 'test_name'
 					}
 				}, {
 					startDate: new Date('8 Oct 2017'),
@@ -90,7 +84,6 @@
 				}]
 			}, {
 				title: 'test 3',
-				titleHtmlElem: '<input type="checkbox" />',
 				dates: [{
 					startDate: new Date('5 Oct 2017'),
 					endDate: new Date('8 Oct 2017'),
@@ -104,7 +97,6 @@
 				}]
 			}, {
 				title: 'test 4',
-				titleHtmlElem: '<input type="checkbox" />',
 				dates: [{
 					startDate: new Date('5 Oct 2017'),
 					endDate: new Date('8 Oct 2017'),
@@ -118,7 +110,6 @@
 				}]
 			}, {
 				title: 'test 5',
-				titleHtmlElem: '<input type="checkbox" />',
 				dates: [{
 					startDate: new Date('5 Oct 2017'),
 					endDate: new Date('8 Oct 2017'),
@@ -132,7 +123,6 @@
 				}]
 			}, {
 				title: 'test 6',
-				titleHtmlElem: '<input type="checkbox" />',
 				dates: [{
 					startDate: new Date('5 Oct 2017'),
 					endDate: new Date('8 Oct 2017'),
@@ -146,7 +136,6 @@
 				}]
 			}, {
 				title: 'test 7',
-				titleHtmlElem: '<input type="checkbox" />',
 				dates: [{
 					startDate: new Date('5 Oct 2017'),
 					endDate: new Date('8 Oct 2017'),
@@ -160,7 +149,6 @@
 				}]
 			}, {
 				title: 'test 8',
-				titleHtmlElem: '<input type="checkbox" />',
 				dates: [{
 					startDate: new Date('5 Oct 2017'),
 					endDate: new Date('8 Oct 2017'),
@@ -174,7 +162,6 @@
 				}]
 			}, {
 				title: 'test 9',
-				titleHtmlElem: '<input type="checkbox" />',
 				dates: [{
 					startDate: new Date('5 Oct 2017'),
 					endDate: new Date('8 Oct 2017'),
@@ -188,7 +175,6 @@
 				}]
 			}, {
 				title: 'test 10',
-				titleHtmlElem: '<input type="checkbox" />',
 				dates: [{
 					startDate: new Date('5 Oct 2017'),
 					endDate: new Date('8 Oct 2017'),
@@ -202,7 +188,6 @@
 				}]
 			}, {
 				title: 'test 11',
-				titleHtmlElem: '<input type="checkbox" />',
 				dates: [{
 					startDate: new Date('5 Oct 2017'),
 					endDate: new Date('8 Oct 2017'),
@@ -216,7 +201,6 @@
 				}]
 			}, {
 				title: 'test 12',
-				titleHtmlElem: '<input type="checkbox" />',
 				dates: [{
 					startDate: new Date('5 Oct 2017'),
 					endDate: new Date('8 Oct 2017'),
@@ -230,7 +214,6 @@
 				}]
 			}, {
 				title: 'test 13',
-				titleHtmlElem: '<input type="checkbox" />',
 				dates: [{
 					startDate: new Date('5 Oct 2017'),
 					endDate: new Date('8 Oct 2017'),
