@@ -5,25 +5,38 @@
 	<link rel="stylesheet" href="src/simple-gantt.css">
 	<style>
 		#gantt-container {
-			width: 800px;
-			height: 600px;
+			width: 100%;
+			height: 400px;
 			border: 1px solid #000000;
+		}
+
+		.main-bar {
+			z-index: 20;
+		}
+
+		.low-bar {
+			z-index: 10;
 		}
 	</style>
 </head>
 <body>
+	<h1>Simple Gantt</h1>
 	<div id="gantt-container">
 		
 	</div>
-	<script src="simple-gantt-4acbf5de36.js"></script>
+	<script src="simple-gantt-aae3c5596c.js"></script>
 	<script>
 		var data = {
 			scope: {
 				startDate: new Date('5 Sep 2017'),
 				endDate: new Date('25 Oct 2017')
 			},
+			onClick: function(index) {
+				console.log('row click: ' + index);
+			},
 			gantt: [{
 				title: 'test 1',
+				titleHtmlElem: '<input type="checkbox" />',
 				dates: [{
 					startDate: new Date('20 Sep 2017'),
 					endDate: new Date('23 Sep 2017'),
@@ -41,23 +54,37 @@
 				}]
 			}, {
 				title: 'test 2',
+				titleHtmlElem: '<input type="checkbox" />',
 				dates: [{
-					startDate: new Date('5 Oct 2017'),
-					endDate: new Date('8 Oct 2017'),
-					label: 'test 2-1 label',
-					color: '#3399ff',
+					startDate: new Date('1 Oct 2017'),
+					endDate: new Date('5 Oct 2017'),
+					label: '',
+					color: '#33cc4a',
+					class: 'low-bar',
 					desc: 'Hello World 2<br><b>Hello Dude 2</b>',
 					onClick: function() {
 						console.log('clicked');
 					}
 				}, {
-					startDate: new Date('10 Oct 2017'),
+					startDate: new Date('5 Oct 2017'),
+					endDate: new Date('8 Oct 2017'),
+					label: 'test 2-1 label',
+					color: '#3399ff',
+					class: 'main-bar',
+					desc: 'Hello World 2<br><b>Hello Dude 2</b>',
+					onClick: function() {
+						console.log('clicked');
+					}
+				}, {
+					startDate: new Date('8 Oct 2017'),
 					endDate: new Date('12 Oct 2017'),
 					label: 'test 2-2 label',
+					class: 'low-bar',
 					color: '#ff9900'
 				}]
 			}, {
 				title: 'test 3',
+				titleHtmlElem: '<input type="checkbox" />',
 				dates: [{
 					startDate: new Date('5 Oct 2017'),
 					endDate: new Date('8 Oct 2017'),
@@ -71,6 +98,7 @@
 				}]
 			}, {
 				title: 'test 4',
+				titleHtmlElem: '<input type="checkbox" />',
 				dates: [{
 					startDate: new Date('5 Oct 2017'),
 					endDate: new Date('8 Oct 2017'),
@@ -84,6 +112,7 @@
 				}]
 			}, {
 				title: 'test 5',
+				titleHtmlElem: '<input type="checkbox" />',
 				dates: [{
 					startDate: new Date('5 Oct 2017'),
 					endDate: new Date('8 Oct 2017'),
@@ -97,6 +126,7 @@
 				}]
 			}, {
 				title: 'test 6',
+				titleHtmlElem: '<input type="checkbox" />',
 				dates: [{
 					startDate: new Date('5 Oct 2017'),
 					endDate: new Date('8 Oct 2017'),
@@ -110,6 +140,7 @@
 				}]
 			}, {
 				title: 'test 7',
+				titleHtmlElem: '<input type="checkbox" />',
 				dates: [{
 					startDate: new Date('5 Oct 2017'),
 					endDate: new Date('8 Oct 2017'),
@@ -123,6 +154,7 @@
 				}]
 			}, {
 				title: 'test 8',
+				titleHtmlElem: '<input type="checkbox" />',
 				dates: [{
 					startDate: new Date('5 Oct 2017'),
 					endDate: new Date('8 Oct 2017'),
@@ -136,6 +168,7 @@
 				}]
 			}, {
 				title: 'test 9',
+				titleHtmlElem: '<input type="checkbox" />',
 				dates: [{
 					startDate: new Date('5 Oct 2017'),
 					endDate: new Date('8 Oct 2017'),
@@ -149,6 +182,7 @@
 				}]
 			}, {
 				title: 'test 10',
+				titleHtmlElem: '<input type="checkbox" />',
 				dates: [{
 					startDate: new Date('5 Oct 2017'),
 					endDate: new Date('8 Oct 2017'),
@@ -162,6 +196,7 @@
 				}]
 			}, {
 				title: 'test 11',
+				titleHtmlElem: '<input type="checkbox" />',
 				dates: [{
 					startDate: new Date('5 Oct 2017'),
 					endDate: new Date('8 Oct 2017'),
@@ -175,6 +210,7 @@
 				}]
 			}, {
 				title: 'test 12',
+				titleHtmlElem: '<input type="checkbox" />',
 				dates: [{
 					startDate: new Date('5 Oct 2017'),
 					endDate: new Date('8 Oct 2017'),
@@ -188,6 +224,7 @@
 				}]
 			}, {
 				title: 'test 13',
+				titleHtmlElem: '<input type="checkbox" />',
 				dates: [{
 					startDate: new Date('5 Oct 2017'),
 					endDate: new Date('8 Oct 2017'),
@@ -204,7 +241,7 @@
 
 		var chartConfig = {
 			titleWidth: 200,
-			height: 600
+			height: 400
 		}
 
 		SimpleGantt.generate('#gantt-container', chartConfig, data);

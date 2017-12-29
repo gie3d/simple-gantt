@@ -4,7 +4,25 @@
   overflow-y: hidden;
   font-family: 'Arial';
   font-size: 13px;
-  color: #333333; }
+  color: #333333;
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */ }
+
+.main-container * {
+  -webkit-box-sizing: content-box !important;
+  -moz-box-sizing: content-box !important;
+  box-sizing: content-box !important; }
 
 .header-panel {
   position: absolute;
@@ -54,7 +72,8 @@
   font-size: 13px;
   border-radius: 8px;
   height: 19px;
-  line-height: 19px; }
+  line-height: 19px;
+  z-index: 10; }
 
 .monthyear-box {
   float: left;
@@ -90,6 +109,12 @@
   border-style: solid;
   border-color: #cccccc; }
 
+.row-background {
+  position: absolute;
+  color: #eeeeee;
+  z-index: 1;
+  letter-spacing: 2px; }
+
 .wrap-text-with-dots {
   text-overflow: ellipsis;
   overflow: hidden;
@@ -106,3 +131,8 @@
 
 .bar:hover + .desc-box {
   display: block; }
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }

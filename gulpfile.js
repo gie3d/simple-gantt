@@ -20,7 +20,7 @@ gulp.task('connect', function() {
 gulp.task('sass', function () {
 	return gulp.src(srcDir + '/*.scss')
 		.pipe(sass().on('error', sass.logError))
-		.pipe(gulp.dest(srcDir + '/src'));
+		.pipe(gulp.dest(srcDir + '/'));
 });
 
 gulp.task('sass:watch', function () {
