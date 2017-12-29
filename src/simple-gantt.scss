@@ -108,6 +108,7 @@ $borderColor: #cccccc;
 	position: absolute;
 	background-color: #eeeeee;
 	font-weight: bold;
+	z-index: 20;
 }
 
 .data-panel .chart-panel {
@@ -116,13 +117,6 @@ $borderColor: #cccccc;
 	border-width: 0px 0px 0px 1px;
 	border-style: solid;
 	border-color: $borderColor;
-}
-
-.row-background {
-	position: absolute;
-	color: #eeeeee;
-	z-index: 1;
-	letter-spacing: 2px;
 }
 
 .wrap-text-with-dots {

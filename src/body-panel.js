@@ -1,7 +1,7 @@
 var BodyPanel = (function(GANTT_DEFAULT_CONFIG) {
 	'use strict';
 
-	var generate = function(chartConfig, data) {
+	var generate = function(chartConfig, data, containerId) {
 		var dataPanel = document.createElement('div');
 		dataPanel.classList.add('data-panel');
 		dataPanel = setPanelWidth(dataPanel, chartConfig, data);
@@ -9,7 +9,7 @@ var BodyPanel = (function(GANTT_DEFAULT_CONFIG) {
 
 		var leftPanel = createLeftPanel(chartConfig, data);
 		var chartPanel = createChartPanel(chartConfig, data);
-		var chartFilled = fillChart(chartPanel, chartConfig, data);
+		var chartFilled = fillChart(chartPanel, chartConfig, data, containerId);
 
 		dataPanel.appendChild(leftPanel);
 		dataPanel.appendChild(chartFilled);
@@ -66,8 +66,9 @@ var BodyPanel = (function(GANTT_DEFAULT_CONFIG) {
 		return panel;
 	}
 
-	var fillChart = function(chartPanel, chartConfig, data) {
+	var fillChart = function(chartPanel, chartConfig, data, containerId) {
 		var titleWidth = GanttUtils.getTitleWidth(chartConfig);
+
 		data.gantt.forEach(function(row, index) {
 			var top = index * (GANTT_DEFAULT_CONFIG.BOXHEIGHT + 1);
 			top = top + 3;
@@ -80,18 +81,16 @@ var BodyPanel = (function(GANTT_DEFAULT_CONFIG) {
 				}
 			});
 
-			var rowBackground = generateChartRowBackgroud(chartConfig, row.title, top, data, index);
+			var rowBackground = generateRowEvent(chartConfig, row.title, top, data, index, containerId);
 			chartPanel.appendChild(rowBackground);
 			
 		});
+
 		// console.log(chartPanel);
 		return chartPanel;
 	}
 
-	var generateChartRowBackgroud = function(chartConfig, title, top, data, index) {
-		var elems = document.createElement('div');
-
-		// create a long div to attach on click event
+	var generateRowEvent = function(chartConfig, title, top, data, index, containerId) {
 		var boxWidth = GanttUtils.getBoxWidth(chartConfig);
 		var daysDiff = GanttUtils.calculateDaysDiff(data.scope.startDate, data.scope.endDate);
 		var panelWidth = (boxWidth * daysDiff);
@@ -100,31 +99,16 @@ var BodyPanel = (function(GANTT_DEFAULT_CONFIG) {
 		div.style.top = top + 'px';
 		div.style.width = panelWidth + 'px';
 		div.style.height = GANTT_DEFAULT_CONFIG.BOXHEIGHT + 'px';
-		elems.appendChild(div);
-
-		var approxElemWidht = (title.length * 12) + 3; // assume that 1 character has 10px width
-		var totalElems = parseInt(panelWidth/approxElemWidht);
-		var left = 3;
-		for (var i = 0; i < totalElems; i++) {
-			var elem = document.createElement('div');
-			elem.classList.add('row-background');
-			elem.style.left = left + 'px';
-			elem.style.top = (top + 4) + 'px';
-			var text = document.createTextNode(title);
-			elem.appendChild(text);
-			elems.appendChild(elem);
-			left += approxElemWidht;
-		}
 
 		if (data.onClick) {
 			var rowClick = function() {
 				data.onClick(index);
 			}
 
-			elems.addEventListener('click', rowClick);
-		}
+			div.addEventListener('click', rowClick);
+		};
 
-		return elems;
+		return div;
 	}
 
 	var generateGanttBar = function(chartConfig, bar, top, firstDayOfChart) {
